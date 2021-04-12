@@ -1,2 +1,5 @@
-package framework.state;public class StateBuilder {
+package framework.state;
+
+public class StateBuilder {
+
 }

@@ -1,12 +1,14 @@
+package framework;
+
 public class FSMFactory {
 
-    private FSMFactory instance;
+    private static FSMFactory instance;
 
     private FSMFactory(){
 
     }
 
-    public synchronized FSMFactory getInstance() {
+    public static synchronized FSMFactory getInstance() {
         if(instance == null ){
             instance = new FSMFactory();
         }
@@ -14,6 +16,6 @@ public class FSMFactory {
     }
 
     public FSM createFSM(){
-        return null;
+        return new FSM();
     }
 }

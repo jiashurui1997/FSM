@@ -1,4 +1,4 @@
-package framework;
+package framework.selector;
 
 import framework.state.AbstractFSMState;
 

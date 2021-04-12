@@ -1,4 +1,4 @@
-package state;
+package framework.state;
 
 public class FSMTreeState implements AbstractFSMState{
 

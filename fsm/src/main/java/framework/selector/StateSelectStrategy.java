@@ -1,4 +1,4 @@
-package framework;
+package framework.selector;
 
 import framework.state.AbstractFSMState;
 import framework.state.FSMChainState;
@@ -14,13 +14,14 @@ public enum StateSelectStrategy {
     },
     CHAIN{
         public AbstractFSMState select(FSMChainState currentState){
+            System.out.println("Inner");
             return currentState.nextState;
         }
     };
 
     public AbstractFSMState select(AbstractFSMState currentState) {
+        System.out.println("Outer");
         return null;
     }
-
 
 }

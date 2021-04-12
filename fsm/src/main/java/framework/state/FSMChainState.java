@@ -1,8 +1,8 @@
-package state;
+package framework.state;
 
 public class FSMChainState implements AbstractFSMState{
 
-    public AbstractFSMState afterState;
+    public FSMChainState nextState;
 
     public void onEnter() {
 
@@ -14,5 +14,9 @@ public class FSMChainState implements AbstractFSMState{
 
     public void onException(Throwable e) {
 
+    }
+
+    public FSMChainState andThen(Class<? extends FSMChainState> nextStateClass) throws IllegalAccessException, InstantiationException {
+        return this.nextState = nextStateClass.newInstance();
     }
 }

@@ -1,4 +1,4 @@
-package state;
+package framework.state;
 
 public interface AbstractFSMState {
 

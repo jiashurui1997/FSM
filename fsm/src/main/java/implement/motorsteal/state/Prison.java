@@ -1,2 +1,8 @@
-package implement.motorsteal.state;public class Prison {
+package implement.motorsteal.state;
+
+import framework.state.FSMChainState;
+
+public class Prison extends FSMChainState {
+
+
 }

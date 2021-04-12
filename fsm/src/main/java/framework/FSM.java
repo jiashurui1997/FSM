@@ -1,8 +1,14 @@
-import state.AbstractFSMState;
+package framework;
 
+import framework.selector.AbstractFSMStateSelector;
+import framework.selector.DefaultSelector;
+import framework.selector.StateSelectStrategy;
+import framework.state.AbstractFSMState;
+
+import java.util.HashMap;
 import java.util.Queue;
 
-public abstract class FSM {
+public class FSM {
 
     AbstractFSMState currentState;
 
@@ -12,12 +18,17 @@ public abstract class FSM {
 
     Queue<String> signalQueue;
 
+    StateSelectStrategy globalStrategy = StateSelectStrategy.CHAIN;
+
+    HashMap<Class<? extends AbstractFSMState>, StateSelectStrategy> stateSelectMap;
 
     /**
      * Just overwrite it if you want a specific machine
      *
      * **/
-    public void run(){
+    public void run(AbstractFSMState initState){
+        selector = new DefaultSelector();
+        currentState = initState ;
 
         while(currentState != null) {
             try {
@@ -26,7 +37,7 @@ public abstract class FSM {
             }catch (Exception e){
                 currentState.onException(e);
             }finally {
-                currentState = selector.selectNextState(currentState);
+                currentState = selector.selectNextState(currentState,globalStrategy);
             }
         }
     }

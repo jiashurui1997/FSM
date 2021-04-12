@@ -1,4 +1,6 @@
 package implement.motorsteal.state;
 
-public class Escape {
+import framework.state.FSMChainState;
+
+public class Escape extends FSMChainState {
 }
